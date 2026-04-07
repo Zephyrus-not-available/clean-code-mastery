@@ -1,8 +1,14 @@
-# SOLID Review - Chapter 2 Naming
+# SOLID ပြန်လည်သုံးသပ်ခြင်း - အခန်း ၂ အမည်ပေးခြင်း (SOLID Review - Chapter 2 Naming)
 
-- [ ] **S (Single Responsibility):** Do names make each class/function responsibility explicit?
-- [ ] **O (Open/Closed):** Do expressive names reduce risky edits when adding behavior?
-- [ ] **L (Liskov Substitution):** Are subtype contracts obvious from naming?
-- [ ] **I (Interface Segregation):** Do interface names reflect focused client needs?
-- [ ] **D (Dependency Inversion):** Do abstractions have business-centered names over technical details?
+Variable များ၊ Function များ၊ နှင့် Parameter များကို အမည်ပေးသည့်ပုံစံသည် သင့် Code များကို SOLID rules များနှင့် ကိုက်ညီစေရန်အတွက် အလွန်အရေးပါသော အခန်းကဏ္ဍတွင် ပါဝင်သည်။
 
+- [x] **S (Single Responsibility):** အမည်များသည် Class/Function တစ်ခုစီ၏ တာဝန်ကို ရှင်းလင်းစွာ ဖော်ပြပါသလား?
+  * *မှတ်ချက်:* Class တစ်ခု၏ အမည်တွင် "And", "Or", "Manager", သို့မဟုတ် "Super" ကဲ့သို့သော စကားလုံးများ ပါဝင်နေလျှင် ၎င်းသည် SRP ကို ချိုးဖောက်နေနိုင်ခြေများသည်။ Class တစ်ခုသည် အလုပ်တစ်ခုကိုသာ လုပ်သင့်ပြီး၊ ၎င်း၏ အမည်သည် ထိုလုပ်ဆောင်ချက်ကို ရှင်းလင်းပြတ်သားစွာ ဖော်ပြသင့်သည်။
+- [x] **O (Open/Closed):** ထင်ရှားသော အမည်များသည် အသစ်ထပ်ထည့်ရာတွင် အန္တရာယ်ရှိသော အပြောင်းအလဲများကို လျှော့ချပေးပါသလား?
+  * *မှတ်ချက်:* ရည်ရွယ်ချက်ကို ပေါ်လွင်စေသော၊ အထွေထွေကျသော (abstract) အမည်များပေးထားသော Interface များနှင့် Base Class များသည် လက်ရှိရှိပြီးသား အစိတ်အပိုင်းများကို အမည်ပြောင်းရန် သို့မဟုတ် ပြင်ဆင်ရန်မလိုဘဲ polymorphism မှတဆင့် စနစ်ကို တိုးချဲ့နိုင်စေသည်။
+- [x] **L (Liskov Substitution):** Subtype များ၏ လုပ်ဆောင်ချက်များသည် အမည်ပေးခြင်းမှတဆင့် ထင်ရှားပါသလား?
+  * *မှတ်ချက်:* ဆင်းသက်လာသော (Derived) Class များသည် ၎င်းတို့၏ Base Class ၏ အမည်နှင့် လုပ်ဆောင်ချက်ဆိုင်ရာ သဘောတူညီချက် (contract) ကို လေးစားလိုက်နာသင့်သည်။ အကယ်၍ `Rectangle` (စတုဂံ) ထံမှ `Square` (စတုရန်း) က inherit လုပ်ထားသော်လည်း ၎င်း၏ `setWidth` သည် width (အကျယ်) နှင့် height (အမြင့်) နှစ်ခုလုံးကို ပြောင်းလဲပေးနေလျှင်၊ `Rectangle` ဆိုသော အမည်သည် မှားယွင်းသော မျှော်လင့်ချက်များကို ဖြစ်ပေါ်စေသည်။ အမည်များသည် သွယ်ဝိုက်သော သဘောတူညီချက် (implicit contract) များကို ဖန်တီးပေးသည်။
+- [x] **I (Interface Segregation):** Interface အမည်များသည် Client လိုအပ်ချက်ကို တိကျစွာ ရောင်ပြန်ဟပ်ပါသလား?
+  * *မှတ်ချက်:* Interface များသည် `Machine` သို့မဟုတ် `Device` ကဲ့သို့သော ကျယ်ပြန့်ပြီး တိကျမှုမရှိသည့် စကားလုံးများအစား `Printable`, `Runnable`, သို့မဟုတ် `Shape` ကဲ့သို့သော တိကျ၍ ရည်ရွယ်ချက်ပေါ်လွင်သော အမည်များ ရှိသင့်သည်။
+- [x] **D (Dependency Inversion):** အထွေထွေ (Abstractions) အမည်များသည် နည်းပညာပိုင်းဆိုင်ရာ အသေးစိတ်အချက်များထက် လုပ်ငန်းပိုင်းအပေါ်တွင် ပို၍အဓိကထားပါသလား?
+  * *မှတ်ချက်:* တိကျသော implementation ထက် abstraction ပေါ်တွင်သာ မှီခို (depend) ပါ၊ ထို့အပြင် အမည်များကို implementation ထက် abstraction ကို အခြေခံ၍ ပေးပါ။ Class တစ်ခုသည် `MySqlConnection` ဆိုသည့်အမည်ထက် `DatabaseConnection` အပေါ်တွင် မှီခိုသင့်သည်။ Variable သို့မဟုတ် Class အမည်များတွင် implementation details များကို ရှောင်ပါ (ဥပမာ - `LinkedList` အစား `List` ကိုသာ အသုံးပြုခြင်း)။
